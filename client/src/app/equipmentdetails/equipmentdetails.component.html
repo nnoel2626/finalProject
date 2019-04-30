@@ -1,0 +1,112 @@
+<main class="mt-5 pt-4">
+  <div class="container dark-grey-text mt-5">
+
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+
+        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="">
+
+      </div>
+
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+
+        <!--Content-->
+        <div class="p-4">
+
+          <div class="mb-3">
+            <a> <button class="btn btn-primary btn-md my-0 p" (click)="setEditMode(true)">
+                <span class="badge purple mr-1">Edit</span></button>
+            </a>
+            <a>
+              <button class="btn btn-primary btn-md my-0 p" (click)="deleteEquipment()">
+                <span class="badge blue mr-1">Delete</span></button>
+            </a>
+            <a>
+              <button class="btn btn-primary btn-md my-0 p" routerLink="/gallery">
+                <span class="badge red mr-1">Gallery</span></button>
+            </a>
+          </div>
+          <div *ngIf="!editing">
+            <p class="lead font-weight-bold">{{equipment.name}}</p>
+            <p class="lead font-weight-bold">{{equipment.brandl}}</p>
+            <p class="lead font-weight-bold">{{equipment.model}}</p>
+            <p class="lead font-weight-bold">{{equipment.serialNumber}}</p>
+
+            <p class="lead">
+              <span class="mr-1">
+              </span>
+              <span>{{equipment.price}}</span>
+            </p>
+
+            <p><span>Updated: </span>{{equipment.updatedAt }} | <span>Created: </span>{{ equipment.createdAt }}</p>
+          </div>
+
+          <form class="d-flex justify-content-left">
+            <button class="btn btn-primary btn-md my-0 p" type="submit">Rent
+              <i class="fas fa-shopping-cart ml-1"></i>
+            </button>
+
+          </form>
+
+        </div>
+        <!--Content-->
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+    <hr>
+    <div *ngIf="editing">
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center wow fadeIn">
+        <h4 class="my-4 h4">Equipment Edit Form</h4>
+        <!--Grid column-->
+        <div class="col-md-6 text-center">
+          <!-- <p>Please, fill out all the fields in this form below.</p> -->
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+        <!--Grid column-->
+        <div class="col-lg-6 col-md-12 mb-4">
+          <form #form="ngForm" (ngSubmit)="updateEquipment(form.value)">
+            <div class="form-group">
+              <label for="nameField">Name:</label>
+              <input #title name="nameField" class="form-control" [ngModel]="equipment.name">
+              <!-- <br /> -->
+              <label for="brandField">Brand:</label>
+              <input name="brandField" class="form-control" [ngModel]="equipment.brand">
+              <!-- </div> -->
+              <label for="modelField">Model:</label>
+              <input name="modelField" class="form-control" [ngModel]="equipment.model">
+
+              <label for="serialNumberField">Serial Number:</label>
+              <input name="serialNumberField" class="form-control" [ngModel]="equipment.serialNumber">
+
+              <label for="price">Price:</label>
+              <input name="price" class="form-control" [ngModel]="equipment.price">
+
+              <label for="imageUrl">Image:</label>
+              <input name="imageUrl" class="form-control" [ngModel]="equipment.imageUrl">
+            </div>
+            <button type="submit">save</button>
+            <button type="button" (click)="setEditMode(false)">cancel</button>
+            <button type="button" (click)="deleteEquipment()">delete this equipment</button>
+          </form>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+</main>
+<!--Main layout-->

@@ -1,0 +1,15 @@
+extends layouts/visitors_layout.pug
+            
+block content
+    .jumbotron.text-xs-center
+      h1.display-3 Thank You!
+      p.lead
+        strong Great!  #{userInfo.firstname}  #{userInfo.lastname}
+        br
+        |  Someone will get in touch with you as soon as possible.
+      hr
+      p
+        | Having trouble? 
+        a(href='') Call us at this phone number: 617-233-2525
+      p.lead
+        a.btn.btn-primary.btn-sm(href='/home', role='button') Continue to homepage

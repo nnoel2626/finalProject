@@ -1,0 +1,50 @@
+extends user_layout.pug
+
+
+block styles
+  link(rel="stylesheet", href="/stylesheets/main.css")
+  link(rel="stylesheet", href="/stylesheets/forms.css")
+
+block content
+   .main.container
+    .row
+        .col-md-12
+            h4 Add Equipment
+            a.btn.btn-primary.btn-lg(href='/rental/equipment', role='button') All Equipment
+            hr
+            form(method='POST' action='/rental/add-equipment' encrypt ='application/x-www-form-urlencoded')
+                    div.form-group
+                        label(for='name') Name
+                        input#name.form-control(type='text',placeholder='name' name='name')
+                    div.form-group    
+                        label(for='brand') Brand
+                        input#brand.form-control(type='text',placeholder='brand' name='brand')
+                    div.form-group
+                        label(for='model') Model
+                        input#model.form-control(type='text',placeholder='model' name='model')
+                    div.form-group
+                        label(for='serialNumber') Serial Number
+                        input#serialNumber.form-control(type='text',placeholder="serialNumber" name='serialNumber')
+                    div.form-group    
+                        label(for='price') Price
+                        input#price(type='text', placeholder='price' name='price')
+                    div.form-group    
+                        label(for='imageUrl') ImageUrl
+                        input#imageUrl.form-control(type='text',placeholder='imageUrl' name='imageUrl')
+                    button.btn.btn-info.btn-lg.form-control(type='submit') Add Equipment
+
+
+
+
+
+
+
+
+
+//- header.main-header
+//-       nav.main-header__nav
+//-         ul.main-header__item-list
+//-           li.main-header__item
+//-             a(href='/') Shop
+//-           li.main-header__item
+//-             a.active(href='/rental/add-product') Add Product

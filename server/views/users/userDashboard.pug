@@ -1,0 +1,19 @@
+extends layouts/main-layout.pug
+
+block content
+ .main.container
+    .row
+      .col-md-12.col-md-offset-3
+        .jumbotron
+          h1 Welcome to the AV Rental store
+          br
+          h3  #{userInfo.email} is your login email
+          br
+          h3 Application main features
+          p Login, register, contact, about and contact pages are rendered in pug.
+          p Bootstraps and custom Style Sheets (CSS)
+          p Using app.locals to pass variables to the view. 
+          p Using a couple forms to process the encrypted form data. 
+          form(method='POST', action='/auth/logout')
+           .form-group
+             button.btn.btn-primary(type='submit') Logout 

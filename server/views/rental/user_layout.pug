@@ -1,0 +1,61 @@
+doctype html
+html(lang='en')
+    head  
+        title AV Rental
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css', rel='stylesheet')
+        
+        block styles
+    body
+        nav.navbar.navbar
+            .container-fluid
+                .navbar-header
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href='#') AV Rental
+                #myNavbar.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        li.nav-item
+                            a.nav-link(href='/rental/userDashboar', class=(path === '/rental/userDashboard' ? 'active' : ''))
+                                | Home 
+                                span.sr-only (current)
+                        li.nav-item
+                            a.nav-link(href='/about', class=(path === '/about' ? 'active' : '')) About
+                        li.nav-item
+                            a.nav-link(href='/contact', class=(path === '/contact' ? 'active' : '')) Contact
+                        li
+                            a.nav-link(href='/rental/equipment', class=(path === '/rental/equipment' ? 'active' : '')) rentalshop             
+                    ul.nav.navbar-nav.navbar-right
+                        if !user
+                            li
+                                a(href='/auth/logout', class=(path === '/auth/register' ? 'active' : '')) Logout   
+                        else            
+                            li
+                                a(href='/auth/register', class=(path === '/auth/register' ? 'active' : '')) SignUp  
+                            li
+                                a(href='/auth/login', class=(path === '/auth/login' ? 'active' : '')) Login
+                       
+                            
+
+        block content
+            .container
+        
+
+
+
+
+
+
+        footer
+            .footer 
+                ul
+                    li
+                        a(href="/privacy") Privacy
+                    p
+                        | company name <br> 
+                        | &copy; 2019, All Rights Reserved
+
+            

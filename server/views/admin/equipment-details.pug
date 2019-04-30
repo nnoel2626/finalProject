@@ -1,0 +1,18 @@
+extends admin_layout.pug
+
+block styles
+    
+block content
+    .main
+        h1 #{equipment.name}
+        h2 #{equipment.brand} 
+        hr
+        p #{equipment.serialNumber} 
+        p #{equipment.price }
+        p #{equipment.imageUrl} 
+        hr   
+        a.btn.btn-info.btn-lg(href="/admin/edit-equipment/:id" role='button') Edit   
+
+
+//- div.image
+//- img src= product.imageUrl alt=" product.title"

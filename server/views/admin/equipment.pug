@@ -1,0 +1,56 @@
+extends admin_layout.pug
+
+block styles
+//-    link(rel='stylesheet', href='/stylesheets/main.css')  
+block content
+    .main.container
+        div(style='margin:10px auto')
+            table.table.table-bordered.table-striped
+                thead.thead-dark
+                    tr
+                        th(style='width:50px;text-align:center') #
+                        th(style='width:180px') Name
+                        th(style='width:180px') Brand
+                        th(style='width:180px') Model
+                        th(style='width:180px') Serial Number
+                        th(style='width:180px') Price 
+                        th(style='width:180px') ImageUrl   
+                        th(style='width:180px') View
+                        th(style='width:180px') Edit 
+                        th(style='width:180px') Delete    
+                tbody       
+                - for (var i = 0; i < equipment.length; i++)
+                    tr
+                        td(style='text-align:center')= i+1
+                        td #{equipment[i].name} 
+                        td #{equipment[i].brand} 
+                        td #{equipment[i].model}
+                        td #{equipment[i].serialNumber} 
+                        td #{equipment[i].price }
+                        td #{equipment[i].imageUrl}"                
+                        td
+                            a.btn.btn-primary.btn-sm(href="/admin/add-equipment" role='button') Add
+                        td   
+                            a.btn.btn-info.btn-sm(href="/admin/edit-equipment/"+equipment[i]._id) Edit 
+                            
+                        td  
+                            form(action="/admin/delete-equipment" method="POST") 
+                                input(type="hidden" value=equipment[i]._id name='equipmentId')
+                                button.btn-danger.btn-sm(type="submit") Delete     
+                    tr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

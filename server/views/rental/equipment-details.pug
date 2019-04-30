@@ -1,0 +1,29 @@
+extends user_layout.pug
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/main.css")
+    link(rel="stylesheet", href="/stylesheets/equipment.css")
+
+block content
+        .main
+            .grid
+                article.card.equipment-item
+                    header.card__header
+                    h1.equipment__name #{equipment.name}
+                    div.card__image
+                        img( alt="")
+                    div.card__content
+                        h4.equipment__brand #{equipment.brand} 
+                        h4.equipment__model #{equipment.model}
+                        h4.equipment__serialNumber #{equipment.serialNumber}
+                        h4.equipment__price #{equipment.price}
+                    .card__actions
+                        a.btn.btn-info.btn-sm(href="/rental/edit-equipment/"+equipment._id) Edit   
+                        form(action='/rental/delete-equipment' method="POST") 
+                            input(type="hidden" value=equipment.id name='equipmentId')
+                            button.btn-danger.btn-sm(type="submit") Delete  
+
+        hr   
+
+        //- div.image
+        //- img src= product.imageUrl alt=" product.title"
